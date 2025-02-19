@@ -1,0 +1,15 @@
+<% if flash[:error].present? %>
+  <p class="error">Error: <%= flash[:error] %></p>
+<% end %>
+
+<%= form_with url: search_weather_path, method: :get, local: true do |f| %>
+  <%= render partial: "shared/textfield", locals: { f: f, name: :address} %>
+  <%= f.submit "Search" %>
+<% end %>
+
+<% if flash[:error].blank? && @weather_data.present? %>
+  <h2>Location: <%= @address %> </h2>
+  <p>Highest Temperature: <%= @highest_temperature %></p>
+  <p>Lowest Temperature: <%= @lowest_temperature %></p>
+  <p>Current Temperature: <%= @current_temperature %></p>
+<% end %>
