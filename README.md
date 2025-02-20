@@ -1,24 +1,18 @@
-# README
+# Weather Search API App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Users can search for the weather of a location, displaying the lowest, highest, and current temperatures. The app caches the weather information by the address's zipcode to reduce the number of API calls.
 
-Things you may want to cover:
+## **Design Pattern**
+1. **Weather Service**  
+   - Handles API calls to the Weather API.  
+   - Calculates latitude and longitude to fetch weather data for the location.
 
-* Ruby version
+2. **CacheHelper Concern**  
+   - Manages caching functionality.
 
-* System dependencies
+3. **WeatherController**  
+   - Contains `show` action to display the weather for a location.  
+   - Allows users to search for weather.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## **Scalability Considerations
+1.  **Clear the cached value if the hour changes to give accurate information
